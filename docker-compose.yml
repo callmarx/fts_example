@@ -1,0 +1,45 @@
+version: '3.5'
+
+x-networks-service-template: &networks
+  networks:
+    - api
+
+x-app-service-template: &app
+  build: .
+  <<: *networks
+  volumes:
+    - .:/api
+    - bundle:/bundle
+
+x-env-service-template: &environment
+  DATABASE_URL: postgresql://postgres:postgres@fts-example-db/fts_example_development
+
+services:
+  api:
+    <<: *app
+    container_name: fts-example
+    ports:
+      - 3001:3000
+    depends_on:
+      - db
+    environment:
+      <<: *environment
+
+  db:
+    image: postgres
+    container_name: fts-example-db
+    command: -c fsync=off --client-min-messages=warning
+    <<: *networks
+    volumes:
+      - db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgres
+
+networks:
+  api:
+    name: api
+    driver: bridge
+
+volumes:
+  db:
+  bundle:

@@ -1,0 +1,7 @@
+pt-BR:
+  faker:
+    lorem:
+      punctuation:
+        space: ' '
+        period: '.'
+        question_mark: '?'
