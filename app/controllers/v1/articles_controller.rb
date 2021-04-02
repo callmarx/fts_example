@@ -5,7 +5,12 @@ module V1
     before_action :entry, only: %i[show create update destroy]
 
     def index
-      @entries = Article.ordered
+      @entries =
+        if params[:good_search] == 'ok'
+          Article.ordered.good_search(params[:q])
+        else
+          Article.ordered.bad_search(params[:q])
+        end
       render json: data_json(@entries), status: :ok
     end
 
@@ -47,7 +52,7 @@ module V1
     end
 
     def data_json(data)
-      { data: data }
+      { count: data.is_a?(ActiveRecord::Relation) ? data.count : 1, data: data }
     end
 
     def data_error_json(data)

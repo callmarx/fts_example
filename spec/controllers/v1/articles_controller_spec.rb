@@ -15,6 +15,28 @@ RSpec.describe V1::ArticlesController, type: :controller do
     it 'is expected entries to be the type defined in Article' do
       expect(assigns(:entries).model).to eq(Article)
     end
+
+    context 'with good_search argument' do
+      before do
+        allow(Article).to receive(:good_search).and_return(Article.all)
+        get :index, params: { q: 'teste', good_search: 'ok' }
+      end
+
+      it 'is expected to Article#good_search be called' do
+        expect(Article).to have_received(:good_search).with('teste')
+      end
+    end
+
+    context 'without good_search argument' do
+      before do
+        allow(Article).to receive(:bad_search).and_return(Article.all)
+        get :index, params: { q: 'teste' }
+      end
+
+      it 'is expected to Article#good_search be called' do
+        expect(Article).to have_received(:bad_search).with('teste')
+      end
+    end
   end
 
   describe '#show' do
