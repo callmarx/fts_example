@@ -14,6 +14,7 @@ gem 'rails-i18n', '~> 6.0.0'
 
 group :development, :test do
   gem 'byebug'
+  gem 'pry-rails'
   gem 'rspec-rails', '~> 4.0.0'
 end
 

@@ -10,6 +10,7 @@ class Article < ApplicationRecord
 
   pg_search_scope :pg_search,
                   against: %i[title content],
+                  ignoring: :accents,
                   using: {
                     tsearch: {
                       dictionary: 'custom_pt_br',

@@ -8,18 +8,8 @@ class AddTsvectorToArticle < ActiveRecord::Migration[6.1]
       CREATE TEXT SEARCH CONFIGURATION custom_pt_br (COPY = pg_catalog.portuguese);
       ALTER TEXT SEARCH CONFIGURATION custom_pt_br
       ALTER MAPPING
-      FOR hword, hword_part, word with unaccent, portuguese_stem;
-
-      CREATE TEXT SEARCH DICTIONARY public.portuguese_dict (
-        TEMPLATE = ispell,
-        DictFile = pt_br,
-        AffFile = pt_br,
-        stopwords = portuguese
-      );
-
-      ALTER TEXT SEARCH CONFIGURATION custom_pt_br
-      ALTER MAPPING FOR hword, hword_part, word
-      WITH public.portuguese_dict, simple;
+      FOR hword, hword_part, word
+      WITH unaccent, portuguese_stem;
     SQL
 
     # create updated trigger using the new text search configuration for tsv and update existing tsv

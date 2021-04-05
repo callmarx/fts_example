@@ -1,6 +1,7 @@
 #!/bin/sh
 set -e
 
+# check/install gem dependencies with 4 parallel jobs
 bundle check || bundle install -j4
 
 # Remove a potentially pre-existing server.pid for Rails.
