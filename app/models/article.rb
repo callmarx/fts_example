@@ -20,24 +20,25 @@ class Article < ApplicationRecord
 
   class << self
     def bad_search(term)
-      entries = all
-
       if term.present?
-        entries = entries.where(
+        self.where(
           %(
             unaccent(title) ilike unaccent(:term)
             OR unaccent(content) ilike unaccent(:term)
           ),
           term: "%#{term}%"
         )
+      else
+        self.all
       end
-      entries
     end
 
     def good_search(term)
-      entries = all
-      entries = entries.pg_search(term) if term.present?
-      entries
+      if term.present?
+        self.pg_search(term)
+      else
+        self.all
+      end
     end
   end
 end
