@@ -1,0 +1,117 @@
+{
+	"info": {
+		"_postman_id": "68281ecb-86bf-438d-8b9e-41c0de63db5e",
+		"name": "fts_example",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:3001/v1/articles?q=proibido",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/v1/articles?q=proibido",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v1",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "proibido"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/v1/articles?q=proibido&good_search=ok",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/v1/articles?q=proibido&good_search=ok",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v1",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "proibido"
+						},
+						{
+							"key": "good_search",
+							"value": "ok"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/v1/articles?q=proibir",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/v1/articles?q=proibir",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v1",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "proibir"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:3001/v1/articles?q=proibir&good_search=ok",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/v1/articles?q=proibir&good_search=ok",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v1",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "proibir"
+						},
+						{
+							"key": "good_search",
+							"value": "ok"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

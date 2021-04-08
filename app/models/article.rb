@@ -13,7 +13,7 @@ class Article < ApplicationRecord
                   ignoring: :accents,
                   using: {
                     tsearch: {
-                      dictionary: 'custom_pt_br',
+                      dictionary: 'custom_pt',
                       tsvector_column: 'tsv'
                     }
                   }
