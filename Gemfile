@@ -19,8 +19,10 @@ group :development, :test do
 end
 
 group :development do
+  gem 'benchmark', require: false
   gem 'brakeman'
   gem 'database_cleaner'
+  gem 'faraday', require: false
   gem 'listen', '~> 3.3'
   gem 'rss', require: false
   gem 'rubocop', require: false
