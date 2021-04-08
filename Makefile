@@ -21,3 +21,9 @@ refresh-db:
 
 test:
 	docker-compose exec api bundle exec rspec $(filter-out $@, $(MAKECMDGOALS))
+
+benchmark:
+	docker-compose exec api bundle exec rails benchmark:all
+
+benchmark-manual:
+	docker-compose exec api bundle exec rails manual_benchmark:all
