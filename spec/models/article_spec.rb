@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-  RSpec.describe Article, type: :model do
+RSpec.describe Article, type: :model do
   describe 'included' do
     it { is_expected.to have_included(PgSearch::Model) }
   end
@@ -40,6 +40,7 @@ require 'rails_helper'
         let(:term) { 'teste' }
 
         it { expect(described_class).not_to have_received(:all) }
+        # rubocop:disable Layout/MultilineBlockLayout, Layout/BlockEndNewline
         it { expect(described_class).to have_received(:where).with(
           %(
             unaccent(title) ilike unaccent(:term)
@@ -47,6 +48,7 @@ require 'rails_helper'
           ),
           term: "%#{term}%"
         ) }
+        # rubocop:enable Layout/MultilineBlockLayout, Layout/BlockEndNewline
       end
     end
 
