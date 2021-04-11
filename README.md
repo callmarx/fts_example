@@ -1,11 +1,11 @@
 # Projetinho exemplo de Full Text Search
 
 Projetinho simples em Rails API-Only para testar as funcionalidades de *Full Text Search* do
-PostgreSQL com a gema [PgSearch](https://github.com/Casecommons/pg_search){:target="_blank"}. Foi
-desenvolvido junto com o post "Busca em texto otimizada com a Gem pg_search" em meu
-[blog](https://callmarx.github.io/){:target="_blank"}, separado em duas partes:
-- [Parte I](https://callmarx.github.io/blog/2021/01/17/busca-texto-otimizada-com-pg-search-p1.html){:target="_blank"}
-- [Parte II](https://callmarx.github.io/blog/2021/04/08/busca-texto-otimizada-com-pg-search-p2.html){:target="_blank"}
+PostgreSQL com a gema [PgSearch](https://github.com/Casecommons/pg_search). Foi desenvolvido junto
+com o post "Busca em texto otimizada com a Gem pg_search" em meu [blog](https://callmarx.github.io/),
+separado em duas partes:
+- [Parte I](https://callmarx.github.io/blog/2021/01/17/busca-texto-otimizada-com-pg-search-p1.html)
+- [Parte II](https://callmarx.github.io/blog/2021/04/08/busca-texto-otimizada-com-pg-search-p2.html)
 
 ## Git clone e diverta-se!
 
@@ -24,7 +24,7 @@ O comando ```make up``` ocupa o terminal em questão pois exibe, em tempo real, 
 Para sair, basta dar CTRL+C (interrompe o ```rails server```, mas o container continua rodando em
 segundo plano). Já o comando ```make prepare-db``` cria o banco de dados com as tabelas necessárias
 e popula através do script abaixo que consome RSS do site da
-[câmara dos deputados](https://www.camara.leg.br/noticias/rss){:target="_blank"}.
+[câmara dos deputados](https://www.camara.leg.br/noticias/rss).
 
 ```ruby
 # script disponível em db/seeds.rb
@@ -71,16 +71,15 @@ end
 
 ## Avaliar o desempenho
 
-Você pode testar o desempenho das buscas tanto em requisições completas com
-[cURL](https://curl.se){:target="_blank"}, [Postman](https://www.postman.com){:target="_blank"} ou
-qualquer outra ferramenta para consulta de API de sua preferência, quanto pelo console da aplicação
-invocando diretamente os métodos. Criei algumas consultas de exemplo pelo Postman que podem ser
-importadas pelo arquivo
-[fts_example.postman_collection.json](/fts_example.postman_collection.json){:target="_blank"}.
+Você pode testar o desempenho das buscas tanto em requisições completas com [cURL](https://curl.se),
+[Postman](https://www.postman.com) ou qualquer outra ferramenta para consulta de API de sua
+preferência, quanto pelo console da aplicação invocando diretamente os métodos. Criei algumas
+consultas de exemplo pelo Postman que podem ser importadas pelo arquivo
+[fts_example.postman_collection.json](/fts_example.postman_collection.json).
 
 Inclui a execução de testes via método e requisição JSON no Makefile, um com a gema
-[Benchmark](https://github.com/ruby/benchmark){:target="_blank"} e outro que mede "na mão" com uso
-de ```Process.clock_gettime(Process::CLOCK_MONOTONIC)```.
+[Benchmark](https://github.com/ruby/benchmark) e outro que mede "na mão" com uso de
+```Process.clock_gettime(Process::CLOCK_MONOTONIC)```.
 
 ```bash
 # em um terminal
@@ -93,7 +92,7 @@ $ make benchmark
 $ make benchmark-manual
 ```
 
-Você obter saídas como as que segue:
+Você obter saídas como as que seguem:
 
 ```
 ########## Method - Gem Benchmark ###########
@@ -119,5 +118,5 @@ context       average       total
 
 ## Licença
 
-Copyright 2021 [Eugenio Augusto Jimenes](https://callmarx.github.io/){:target="_blank"}.
+Copyright 2021 [Eugenio Augusto Jimenes](https://callmarx.github.io/).
 Licenciado sob a licença MIT, consulte o arquivo [LICENSE](/LICENSE).
