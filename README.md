@@ -120,3 +120,8 @@ context       average       total
 
 Copyright 2021 [Eugenio Augusto Jimenes](https://callmarx.github.io/).
 Licenciado sob a licença MIT, consulte o arquivo [LICENSE](/LICENSE).
+
+## Código de Conduta
+
+Espera-se que todos que interagem nas bases de código deste projeto - lista de problemas/sugestões,
+forum, email etc - sigam o [código de conduta](/code_of_conduct.md).
